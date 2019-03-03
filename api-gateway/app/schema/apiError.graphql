@@ -1,0 +1,14 @@
+# Object to test various API errors
+type ApiError {
+  # Example 400 failed request
+  test400: String!
+
+  # Example 403 forbidden
+  test403: String!
+
+  # Example 404 not found
+  test404: String!
+
+  # Example 500 server error
+  test500: String!
+}

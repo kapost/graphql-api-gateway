@@ -1,0 +1,10 @@
+{
+  "packages": [
+    "api-gateway",
+    "service1",
+    "service2"
+  ],
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "version": "independent"
+}

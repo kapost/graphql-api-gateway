@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`hashKey and stableStringKey arrays consistently hashes array 1`] = `"3c02c4eb2d3d4ecdf6022b85b981a2b6"`;
+
+exports[`hashKey and stableStringKey objects consistently hashes object 1`] = `"bdbdd01f6f331e66202f530f4299900b"`;
+
+exports[`hashKey and stableStringKey primatives hashes boolean consistently 1`] = `"c4bf6d05e5b795e4ccc3d496069554e8"`;
+
+exports[`hashKey and stableStringKey primatives hashes null consistently 1`] = `"15c50f0697e94e349d6b5e59d5ba43f4"`;
+
+exports[`hashKey and stableStringKey primatives hashes number consistently 1`] = `"b68fda223f324f6c89a6e71bc6804fe3"`;
+
+exports[`hashKey and stableStringKey primatives hashes string consistently 1`] = `"0c2b15608511cf6ab80be99ecc3f7b1d"`;

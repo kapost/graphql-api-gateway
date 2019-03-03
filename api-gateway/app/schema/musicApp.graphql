@@ -1,0 +1,66 @@
+# Information about the current, logged in user
+type UserProfile {
+  # Current user name
+  name: String!
+
+  # Current user avatar
+  avatarUrl: URI!
+}
+
+# A user-made list of songs
+type Playlist {
+  id: ID!
+
+  # User given name
+  title: String!
+
+  # Creation DateTime
+  createdAt: DateTime!
+
+  # The user added list of songs
+  songs(page: Int = 1, pageSize: Int!): [Song!]!
+}
+
+# A "listened to a song" event in FriendActivity
+type FriendListen {
+  # User profile of friend who listened
+  friend: UserProfile!
+
+  # Song listened to
+  listenedTo: Song!
+
+  # Optional playlist that the friend accessed the song through
+  fromPlaylist: Playlist
+
+  # Timestamp of listen event
+  at: DateTime!
+}
+
+# A musical track that can be played.
+type Song {
+  id: ID!
+
+  # Song track title
+  title: String!
+
+  # Pretend URL to stream song
+  streamUrl: URI!
+
+  # List of artists who released the song. Unpaginated as the list of artists is capped to
+  # a small, discrete count in our service.
+  artists: [Artist!]!
+}
+
+# A producer of songs and albums
+type Artist {
+  id: ID!
+
+  # Artist's display name
+  name: String!
+
+  # URL of artist avatar
+  avatarUrl: URI!
+
+  # Artist's country of origin
+  country: String!
+}

@@ -1,0 +1,14 @@
+{
+  "name": "service2",
+  "version": "1.0.0",
+  "private": true,
+  "description": "An example API containing a pretend time-series of friend activity",
+  "dependencies": {
+    "express": "^4.16.4",
+    "faker": "^4.1.0",
+    "lodash": "^4.17.4"
+  },
+  "scripts": {
+    "start": "node api.js"
+  }
+}

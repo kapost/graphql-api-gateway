@@ -1,0 +1,29 @@
+{
+  "name": "api-gateway",
+  "success_url": "/review_app",
+  "env": {
+    "NODE_ENV": "production",
+    "BABEL_ENV": "production",
+    "BUILD_APP": {
+      "description": "Triggers building the app on postinstall",
+      "value": "true"
+    },
+    "APP_ENV": {
+      "description": "What environment is the app running in? (staging, production, pull-request, etc)",
+      "value": "staging"
+    },
+    "HOST": {
+      "description": "Base url for API to form requests on client and server",
+      "required": true
+    },
+    "NPM_TOKEN": {
+      "description": "Auth token for private NPM packages",
+      "required": true
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-nodejs"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "graphql-api-gateway",
+  "author": "Nathanael Beisiegel",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "yarn": ">=1.9.4"
+  },
+  "workspaces": {
+    "packages": [
+      "api-gateway",
+      "service1",
+      "service2"
+    ]
+  },
+  "scripts": {
+    "start": "lerna exec --no-bail --parallel -- yarn start",
+    "test": " yarn workspace api-gateway test",
+    "export:schema": "yarn workspace api-gateway export:schema"
+  },
+  "devDependencies": {
+    "lerna": "^3.13.0"
+  }
+}

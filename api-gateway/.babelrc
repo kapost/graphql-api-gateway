@@ -1,0 +1,10 @@
+{
+  "presets": [
+    ["env", { "targets": { "node": "8.11" }, "useBuiltIns": true }]
+  ],
+  "plugins": [
+    "transform-object-rest-spread",
+    "transform-class-properties",
+    ["transform-runtime", { "regenerator": false, "polyfill": false }]
+  ]
+}

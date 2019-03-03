@@ -1,0 +1,10 @@
+# Date without time, serialized as `YYYY-MM-DD`. This intentionally does not include
+# time and timezone information.
+scalar Date
+
+# A string in the ISO-8601 format (UTC).
+scalar DateTime
+
+# A string pointing to a resource, in the form
+# \`scheme:[//[user[:password]@]host[:port]][/path][?query][#fragment]\`.
+scalar URI

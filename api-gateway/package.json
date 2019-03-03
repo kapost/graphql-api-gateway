@@ -1,0 +1,76 @@
+{
+  "name": "api-gateway",
+  "version": "1.0.0",
+  "description": "An example GraphQL API Gateway service. A 'back-end for front-ends' that joins data and provides schema on top of existing REST APIs.",
+  "main": "index.js",
+  "private": true,
+  "author": "Nathanael Beisiegel",
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn run run:watch",
+    "start:production": "NODE_ENV=production NODE_PATH=\"./build\"  node ./build/server.js",
+    "run": "NODE_PATH=\"./app\" babel-node ./app/server.js",
+    "run:watch": "NODE_PATH=\"./app\" nodemon --inspect=43655 --ext js,json,graphql --exec $(yarn bin)/babel-node -- ./app/server.js",
+    "development": "yarn run start",
+    "production": "yarn run build && yarn run start:production",
+    "build": "yarn run clean && NODE_ENV=production BABEL_ENV=production babel app -d build --copy-files",
+    "postinstall": "if [ $BUILD_APP ]; then yarn run build; fi",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "yarn run clean:coverage && jest --coverage",
+    "test:coverage-html": "yarn run test:coverage && open ./coverage/lcov-report/index.html",
+    "clean": "yarn run clean:build && yarn run clean:coverage && yarn run clean:schema",
+    "clean:coverage": "rm -rf ./coverage",
+    "clean:build": "rm -rf ./build",
+    "clean:schema": "rm -f ./schema.graphql",
+    "export:schema": "node ./scripts/exportFullGraphQLSchema.js",
+    "redis:clear": "redis-cli flushall"
+  },
+  "dependencies": {
+    "apollo-server": "^2.4.8",
+    "axios": "^0.18.0",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "body-parser": "^1.17.2",
+    "casual": "^1.5.17",
+    "dataloader": "^1.3.0",
+    "express": "^4.15.3",
+    "fast-memoize": "^2.3.0",
+    "graphql": "^14.0.2",
+    "hot-shots": "^5.0.0",
+    "lodash": "^4.17.4",
+    "murmurhash-native": "^3.3.0",
+    "redis": "^2.8.0",
+    "safe-stable-stringify": "1.0.1",
+    "uuid": "^3.2.1",
+    "winston": "^3.0.0-rc5"
+  },
+  "devDependencies": {
+    "babel-runtime": "^6.26.0",
+    "colors": "^1.1.2",
+    "jest": "^22.1.4",
+    "nodemon": "^1.11.0",
+    "sinon": "^4.4.2"
+  },
+  "jest": {
+    "roots": [
+      "app"
+    ],
+    "modulePaths": [
+      "<rootDir>/app/"
+    ],
+    "clearMocks": true,
+    "collectCoverageFrom": [
+      "app/**/*.{js,jsx}",
+      "!app/**/*.spec.{js,jsx}",
+      "!app/**/*.test.{js,jsx}",
+      "!app/**/*Fixture.js",
+      "!**/__mocks__/*",
+      "!spec/**/*"
+    ],
+    "testURL": "http://localhost/"
+  }
+}

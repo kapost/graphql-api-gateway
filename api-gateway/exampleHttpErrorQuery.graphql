@@ -1,0 +1,5 @@
+query ExampleApiError {
+  apiError {
+    test400
+  }
+}

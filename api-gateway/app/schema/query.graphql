@@ -1,0 +1,6 @@
+type Query {
+  currentUser: UserProfile!
+  playlists(page: Int = 1, pageSize: Int!): [Playlist!]!,
+  friendActivity: [FriendListen!]!
+  apiError: ApiError!
+}

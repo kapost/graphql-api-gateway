@@ -1,0 +1,37 @@
+query Home {
+  playlists(pageSize: 20) {
+    title
+    songs(pageSize: 5, page: 1) {
+      title
+      streamUrl
+      artists {
+        name
+        avatarUrl
+        country
+      }
+    }
+  }
+  friendActivity {
+    listenedTo {
+      title
+      artists {
+        name
+        avatarUrl
+        country
+      }
+      streamUrl
+    }
+    at
+    fromPlaylist {
+      title
+    }
+    friend {
+      name
+      avatarUrl
+    }
+  }
+  currentUser {
+    name
+    avatarUrl
+  }
+}

@@ -1,0 +1,4 @@
+type Mutation {
+  # Creates a playlist filled with randomized songs.
+  createRandomizedPlaylist(title: String!): Playlist!
+}

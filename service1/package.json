@@ -1,0 +1,14 @@
+{
+  "name": "service1",
+  "version": "1.0.0",
+  "private": true,
+  "description": "An example API including the core data of Songs, Playlists, Users, and Artists",
+  "dependencies": {
+    "express": "^4.16.4",
+    "faker": "^4.1.0",
+    "lodash": "^4.17.4"
+  },
+  "scripts": {
+    "start": "node api.js"
+  }
+}

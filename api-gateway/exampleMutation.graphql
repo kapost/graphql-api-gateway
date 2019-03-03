@@ -1,0 +1,15 @@
+mutation CreatePlaylist($title: String!) {
+  createRandomizedPlaylist(title: $title) {
+    id
+    title
+    songs(pageSize: 20, page: 1) {
+      title
+      streamUrl
+      artists {
+        name
+        avatarUrl
+        country
+      }
+    }
+  }
+}
